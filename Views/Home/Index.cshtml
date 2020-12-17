@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Chefs";
+}
+
+@model Chef
+
+<style>
+    .new-chef {
+        font-size: 20px;
+        margin-left: 700px;
+    }
+</style>
+
+<h1>Chefs | <a href="/dishes">Dishes</a><a href="/new" class="new-chef btn btn-primary">Add a Chef</a></h1>
+<h2>Check out our roster of Chefs!</h2>
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th># of Dishes</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var chef in ViewBag.AllChefs)
+        {
+            <tr>
+                <td>@chef.FirstName @chef.LastName</td>
+                <td>@chef.Age</td>
+                <td>@chef.CreatedDishes.Count</td>
+            </tr>
+        } 
+    </tbody>
+</table>
